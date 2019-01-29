@@ -98,7 +98,6 @@ export default class Siema {
         endX: 0,
         startY: 0,
         letItGo: null,
-        preventClick: false,
       };
 
       // Touch events
@@ -431,7 +430,6 @@ export default class Siema {
       endX: 0,
       startY: 0,
       letItGo: null,
-      preventClick: this.drag.preventClick
     };
   }
 
@@ -520,7 +518,6 @@ export default class Siema {
     if (this.drag.endX) {
       this.updateAfterDrag();
     }
-    this.clearDrag();
   }
 
 
@@ -530,13 +527,6 @@ export default class Siema {
   mousemoveHandler(e) {
     e.preventDefault();
     if (this.pointerDown) {
-      // if dragged element is a link
-      // mark preventClick prop as a true
-      // to detemine about browser redirection later on
-      if (e.target.nodeName === 'A') {
-        this.drag.preventClick = true;
-      }
-
       this.drag.endX = e.pageX;
       this.selector.style.cursor = '-webkit-grabbing';
       this.sliderFrame.style.webkitTransition = `all 0ms ${this.config.easing}`;
@@ -559,7 +549,6 @@ export default class Siema {
       this.pointerDown = false;
       this.selector.style.cursor = '-webkit-grab';
       this.drag.endX = e.pageX;
-      this.drag.preventClick = false;
       this.enableTransition();
       this.updateAfterDrag();
       this.clearDrag();
@@ -571,12 +560,21 @@ export default class Siema {
    * click event handler
    */
   clickHandler(e) {
-    // if the dragged element is a link
-    // prevent browsers from folowing the link
-    if (this.drag.preventClick) {
+    // Will prevent browser from following links
+    // and stop the click event if it was actually a drag.
+    if (this.isDrag()) {
       e.preventDefault();
+      e.stopPropagation();
     }
-    this.drag.preventClick = false;
+    this.clearDrag();
+  }
+
+
+  /**
+   * Determines if it was a real drag
+   */
+  isDrag() {
+    return this.drag.endX !== 0 && this.drag.startX !== this.drag.endX;
   }
 
 
