@@ -1,5 +1,5 @@
 {
-  "name": "siema",
+  "name": "siemajs",
   "version": "1.5.1",
   "description": "Lightweight and simple carousel with no dependencies",
   "main": "dist/siema.min.js",
@@ -20,13 +20,13 @@
   "files": [
     "dist"
   ],
-  "repository": "pawelgrzybek/siema",
+  "repository": "adrienaggery/siemajs",
   "author": "Pawel Grzybek <grzybecki@gmail.com> (https://pawelgrzybek.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pawelgrzybek/siema/issues"
+    "url": "https://github.com/adrienaggery/siemajs/issues"
   },
-  "homepage": "https://pawelgrzybek.com/siema",
+  "homepage": "https://github.com/adrienaggery/siemajs",
   "keywords": [
     "slider",
     "carousel",

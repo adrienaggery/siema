@@ -1,4 +1,4 @@
-**Hi. I will be discontinuing active maintenance of Siema. I built it by myself to use on one of my projects. Two years later I consider carousels as an anti-pattern and I would suggest you to find a better UI pattern than carousel for your current project. If you really want to use it, feel free. If you have any questions, please look for the answer in closed issues section. Would you like to contribute or coutinue maintenance of Siema? Fantastic!**
+**This is a fork of the original project [https://pawelgrzybek.com/siema/](https://pawelgrzybek.com/siema/). I still think this library provides a good balance between features/footprint/customization. I'll continue to handle bugfixes and do small feature/behavior improvements.**
 
 - - -
 
